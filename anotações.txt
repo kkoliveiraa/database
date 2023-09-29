@@ -1,0 +1,542 @@
+Publico
+ANÁLISE E DESENVOLVIMENTO DE SISTEMAS
+2
+DATABASE MODELING & SQL
+Profa. Rita de Cássia Rodrigues rita@fiap.com.br
+Publico
+BUILDING RELATIONAL DATABASE
+Prof. Diogo Alves
+profdiogo.alves@fiap.com.br
+COMANDOS DML (SQL)
+(DML→LINGUAGEM DE MANIPULAÇÃO DE DADOS)
+3
+Publico
+Agenda
+▪ Objetivo
+▪ Conceitos referentes a linguagem de manipulação de dados
+▪ Revisão dos Conceitos
+▪ Exercícios
+4
+Publico
+Objetivos
+❑ Aplicar os conceitos da linguagem SQL durante a implementação do banco
+de dados
+5
+Publico
+Conteúdo Programático referente a esta aula
+❑ Linguagem de definição de dados
+❑ DML (Insert, Update, Delete)
+❑ Exercícios
+6
+Publico
+Linguagem SQL
+SQL: Structured Query Language
+(Linguagem Estruturada de Consulta)
+É uma linguagem de definição, manipulação e controle de banco de dados.
+As instruções de manipulação de dados, pertencem a divisão DML, da
+linguagem SQL.
+DML: Data Manipulation Language, ou linguagem para manipulação de dados.
+As operações de manipulação de dados são:
+• Inclusão de dados nas tabelas
+• Alteração ou atualização de dados
+• Exclusão de dados
+Também encontramos o subconjunto denominado DCL (Data Control Language),
+utilizado para controlar transações que ocorrem no bando de dados.
+7
+Publico
+Linguagem SQL
+SQL Structured Query Language
+(Linguagem Estruturada de Consulta)
+DML: Linguagem de Manipulação de Dados
+Utilizada para manipular os dados de uma tabela. Utilizamos para inserir,
+atualizar e apagar dados.
+Exemplos: INSERT, UPDATE, DELETE.
+8
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+COMANDO INSERT
+Permite a inclusão de um registro em uma tabela.
+INSERT INTO <nome-tabela>
+[(<nome-coluna>, [<nome-coluna>],...)]
+VALUES
+(<conteúdo>, [<conteúdo>], ...);
+Onde:
+<nome-tabela> - Tabela onde será efetuada a inserção da linha.
+<nome-coluna> - Colunas que terão os valores atribuídos.
+<conteúdo> - Relação de valores a serem incluídos.
+9
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+COMANDO UPDATE
+Permite a alteração do conteúdo de um ou mais campos pertencentes a um ou
+mais registros em uma tabela.
+UPDATE <nome-tabela>
+SET <nome-coluna> = <novo conteúdo para o campo>
+ [,<nome-coluna> = <novo conteúdo para o campo>]
+[WHERE <condição>]
+10
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+COMANDO UPDATE
+UPDATE <nome-tabela>
+SET <nome-coluna> = <novo conteúdo para o campo>
+ [,<nome-coluna> = <novo conteúdo para o campo>]
+[WHERE <condição>]
+Onde:
+<nome-tabela> - Tabela onde será efetuada a atualização.
+<nome-coluna> - Colunas que terá seu valor atualizado.
+<conteúdo> - Novo conteúdo para a coluna.
+<condição> - Critério que indicará quais linhas serão atualizadas.
+11
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+COMANDO DELETE
+Permite a exclusão de um ou mais registros em uma tabela.
+DELETE FROM <nome-tabela>
+[WHERE <condição>]
+Onde:
+<nome-tabela> - Tabela onde será excluída a linha.
+<condição> - Critério que indicará quais linhas serão excluídas.
+12
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+Possíveis situações de ERROS durante a execução dos comandos DML
+Comando INSERT
+❑ Violação de Chave Primária (Primary Key);
+❑ Violação de UNIQUE constraint;
+❑ Valor informado excede o tamanho de coluna ;
+❑ Tipo de dado incompatível com a coluna (caracteres em coluna);
+❑ Violação de Check constraint;
+❑ Violação de chave estrangeira (Foreign Key);
+❑ Violação de not null.
+13
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+Possíveis situações de ERROS durante a execução dos comandos DML
+Comando UPDATE
+❑ Violação de Chave Primária (Primary Key);
+❑ Violação de UNIQUE constraint;
+❑ Valor informado excede o tamanho de coluna ;
+❑ Tipo de dado incompatível com a coluna (caracteres em coluna);
+❑ Violação de Check constraint;
+❑ Violação de chave estrangeira (Foreign Key);
+❑ Violação de not null.
+14
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+Possíveis situações de ERROS durante a execução dos comandos DML
+Comando DELETE
+❑ Violação de chave estrangeira (Foreign Key);
+15
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+Possíveis situações de ERROS durante a execução dos comandos DML
+CONSIDERAÇÕES: Comando INSERT/UPDATE/DELETE
+❑ Quando um erro ocorrer o registro NÃO SERÁ
+INSERIDO/ALTERADO/EXCLUÍDO na base.
+❑ O comando é efetivado somente após o COMMIT. É possível desfazer a
+operação através do ROLLBACK. Obs: após o COMMIT dos comandos, não
+será possível desfazer as operações (nem mesmo utilizando o ROLLBACK);
+❑ Em alguns SGBDS, as ferramentas podem realizar COMMIT automático
+(SQL Server). Em programação pode ser necessário que se use os
+comandos commit ou rollback.
+16
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+Possíveis situações de ERROS durante a execução dos comandos DML
+PERMISSÕES INSERT/UPDATE/DELETE
+❑ Para realizar essas operações o usuário deve ser o proprietário da tabela,
+isto é, deve ter criado a tabela em seu esquema, ou possuir privilégios para
+realizar os comandos;
+❑ Esquema ou, em inglês, schema, é uma coleção de objetos dentro de um
+banco de dados. Serve para agrupar objetos que se referem a áreas de
+interesse comum dentro de um modelo de dados.
+17
+Publico
+Manipulação dos Dados utilizando a linguagem SQL
+DATA no ORACLE
+Formato padrão de data no Oracle é: dia, mês e ano com dois dígitos.
+Para alterar o formato padrão usamos:
+ALTER SESSION SET NLS_DATE_FORMAT = [date_format]
+Exemplo:
+ALTER SESSION SET NLS_DATE_FORMAT = 'dd/mm/yyyy hh24:mi:ss';
+ALTER SESSION SET NLS_DATE_FORMAT = 'DD/MM/YYYY HH:MI';
+ALTER SESSION SET NLS_DATE_FORMAT = 'DD/MM/YYYY HH24:MI:SS.sssss';
+18
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+DATA no ORACLE
+O date_format pode assumir os seguintes valores:
+YY = ano com 2 dígitos
+YYYY = ano com 4 dígitos
+NM = o número do mês
+MONTH = o nome completo do mês
+MON = o nome abreviado do mês. Exemplo: jan, fev, mar
+DDD = o dia do ano
+DD = o dia do mês
+D = o dia da semana
+DAY = o nome do dia
+HH = a hora do dia, no formato de 12 horas
+HH24 = a hora do dia, no formato 24 horas
+MI = os minutos
+SS = os segundos
+SS.sssss = segundos com milissegundos
+SS.FF ou SSXFF = segundos com frações de segundos
+19
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+EXEMPLOS: INSERT
+20
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+EXEMPLO DE INSERÇÃO DE DADOS EM UMA TABELA
+Atenção:
+Neste exemplo declaramos o nome de
+todas as colunas no comando INSERT.
+O valores para cada coluna deve ser
+informado na mesma ordem da
+declaração, separados por vírgula.
+Dados do tipo caractere deve ser
+informado entre aspas simples.
+Observação:
+Ao final de cada INSERT é importante aplicar o comando COMMIT, caso contrário, ao fechar a
+ferramenta as informações inseridas serão perdidas.
+21
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+EXEMPLO DE INSERÇÃO DE DADOS EM UMA TABELA
+Observação:
+Podemos omitir a declaração do nome das colunas, no momento da inserção, desde que seja
+respeitado a ordem física das colunas ao inserir os respectivos valores.
+Para auxiliar, basta expandir a lista de colunas da tabela, no SQL Developer, conforme imagem a
+direita e informar os valores na ordem visualizada.
+22
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+VISUALIZANDO O DADOS INSERIDOS NA TABELA DEPARTAMENTO
+Utilize o comando SELECT para realizar a consulta simples na tabela Departamento.
+Neste exemplo, estamos consultando todas as colunas/campos (representado pelo asterisco *
+na linha de comando) da tabela DEPARTAMENTO.
+Resultado da consulta:
+Nota: Veremos comando SELECT em detalhes em nossas próximas aulas.
+23
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+EXEMPLO DE INSERÇÃO DE DADOS EM UMA TABELA, CONTENDO CONTEÚDO DATA/HORA.
+TO_DATE(<data e/ou hora>, <formato>) =>
+função do Oracle que converte o parâmetro
+informado (cadeia de caracteres) em uma data no
+formato especificado .
+(FUNÇÃO utilizada em PL/SQL → Procedure Language/
+Structured Query Language)
+24
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+EXEMPLO DE INSERÇÃO DE DADOS EM UMA TABELA, CONTENDO CONTÉÚDO NUMÉRICO DECIMAL.
+Observação:
+Utilizamos o ponto decimal.
+Não armazenamos a formatação do banco.
+A máscara para formatação poderá ser
+aplicada no momento da consulta aos
+dados no banco ou na apresentação dos
+dados ao usuário, através da linguagem de
+programação utilizada na camada de
+apresentação dos dados.
+25
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+VISUALIZANDO O DADOS INSERIDOS NA TABELA FUNCIONARIO
+Resultado da consulta:
+26
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+EXEMPLO DE INSERÇÃO DE DADOS EM UMA TABELA, COM VALORES NULOS PARA CAMPOS
+OPCIONAIS.
+27
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+VISUALIZANDO O DADOS INSERIDOS NA TABELA PROJETO
+Resultado da consulta:
+28
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+COPIANDO LINHAS DE UMA TABELA PARA OUTRA UTILIZANDO O COMANDO INSERT E
+COMANDO SELECT
+Para realizarmos este teste, será necessário criar a tabela abaixo, para que possamos
+demonstrar a cópia dos dados.
+29
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+COPIANDO LINHAS DE UMA TABELA PARA OUTRA UTILIZANDO O COMANDO INSERT E
+COMANDO SELECT (INSERÇÃO A PARTIR DE UMA SUBCONSULTA)
+Abaixo temos o comando INSERT e SELECT necessários para realizar a cópia dos dados de uma
+tabela para outra.
+Neste exemplo, a ideia é copiar apenas os dados referentes aos projetos finalizados, ou seja,
+não será copiada a tabela inteira. Atenção:
+No 1º. Exemplo
+declaramos todas as
+colunas no comando
+INSERT e no comando
+SELECT, é importante
+ressaltar, que as colunas
+das tabelas sejam
+equivalentes e estejam
+na mesma ordem.
+Atenção:
+No 2º. Exemplo omitimos as colunas no
+comando INSERT e no comando SELECT, isto é
+possível pois as colunas das duas tabelas estão
+na mesma ordem.
+Atenção:
+A clausula WHERE no comando SELECT, permite criar
+filtros durante a consulta.
+O operador especial IS NOT NULL, permite validar se o
+conteúdo da coluna não é nulo.
+Mais adiante veremos o comando SELECT em detalhes.
+30
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+EXEMPLOS: UPDATE
+31
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+EXEMPLO DE ATUALIZAÇÃO DE DADOS EM UMA TABELA
+Conteúdo da tabela antes da atualização:
+COMANDO UPDATE PARA REALIZAR A ALTERAÇÃO:
+Conteúdo da tabela depois da execução da atualização:
+ATENÇÃO:
+A clausula WHERE no comando UPDATE, garante que serão modificadas apenas as
+linhas/registros que atendem a condição.
+Em um UPDATE sem WHERE, todas as linhas da tabela serão modificadas.
+32
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+EXEMPLO DE ATUALIZAÇÃO DE DADOS EM UMA TABELA
+Conteúdo da tabela antes da atualização:
+COMANDO UPDATE PARA REALIZAR A ALTERAÇÃO:
+Conteúdo da tabela depois da execução da atualização:
+ATENÇÃO:
+Neste exemplo utilizamos um UPDATE sem a clausula WHERE, pois a ideia é conceder o
+aumento de 5% no salário de todos os funcionários.
+33
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+EXEMPLO DE ATUALIZAÇÃO UTILIZANDO SUBCONSULTA
+Abaixo temos o comando UPDATE e SELECT necessários para alterar o conteúdo de um
+campo/coluna de uma tabela, a partir do conteúdo de outra tabela.
+34
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+EXEMPLO DE ATUALIZAÇÃO UTILIZANDO SUBCONSULTA
+Observe o conteúdo de cada tabela, antes da execução do comando apresentado na página anterior.
+TABELA: PROJETO
+TABELA: COPY_PROJETO_FIN
+35
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+EXEMPLO DE ATUALIZAÇÃO UTILIZANDO SUBCONSULTA
+Observe o conteúdo da tabela PROJETO, após a execução do comando de alteração.
+Observe que todos os projetos, foram modificados para a mesma data término do projeto finalizado
+que está armazenado na tabela COPY_PROJETO_FIN.
+TABELA: PROJETO
+36
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+EXEMPLOS: DELETE
+37
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+EXEMPLO DE DELEÇÃO (ELIMINAÇÃO) DE DADOS EM UMA TABELA
+Conteúdo da tabela antes da deleção:
+COMANDO DELETE PARA REALIZAR A DELEÇÃO/ELIMINAÇÃO:
+Conteúdo da tabela depois da execução da deleção:
+ATENÇÃO:
+A clausula WHERE no comando DELETE, garante que serão deletadas apenas as linhas/registros
+que atendem a condição.
+Em um DELETE sem WHERE, todas as linhas da tabela serão APAGADAS.
+38
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+EXEMPLO DE DELEÇÃO/ELIMINAÇÃO UTILIZANDO SUBCONSULTA
+Abaixo temos o comando DELETE e SELECT necessários para apagar um registro/linha, a partir do
+conteúdo de outra tabela.
+39
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+EXEMPLO DE DELEÇÃO/ELIMINAÇÃO UTILIZANDO SUBCONSULTA
+Observe o conteúdo de cada tabela, antes da execução do comando apresentado na página anterior.
+TABELA: PROJETO
+TABELA: COPY_PROJETO_FIN
+40
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+EXEMPLO DE DELEÇÃO/ELIMINAÇÃO UTILIZANDO SUBCONSULTA
+Observe o conteúdo da tabela PROJETO, após a execução do comando de alteração.
+Observe que o projeto de código igual a 1 foi apagado.
+TABELA: PROJETO
+41
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+ATENÇÃO!
+42
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+❑ Todo comando DDL (Create, Alter e Drop) e DCL (Grant e Revoke) provocam um COMMIT
+implícito, ou seja, após a execução de alguma cláusula de DML (Insert, Update ou Delete),
+se for executado qualquer comando de DDL, os registros serão automaticamente salvos no
+SGBD.
+❑ Um ROLLBACK automático ocorre quando há finalização anormal de uma transação
+(exemplo: falha no sistema).
+43
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+EXEMPLO
+Fonte: Puga, S.; França. Ed.; Goya, M. Banco de Dados – Implementação em SQL, PL/SQL e Oracle 11g. Pearson, 2014. – Página: 204
+44
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+EXEMPLO
+Fonte: Puga, S.; França. Ed.; Goya, M. Banco de Dados – Implementação em SQL, PL/SQL e Oracle 11g. Pearson, 2014. – Página: 204
+45
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+EXEMPLO COM ROLLBACK
+O comando abaixo apagará todas as linhas/registros da tabela PROJETO.
+Tabela PROJETO, após a execução do comando DELETE.
+A instrução ROLLBACK, irá desfazer a deleção executada anteriormente, uma vez que a deleção não
+foi efetivada ainda (não foi executada a instrução COMMIT).
+Tabela PROJETO, após a execução da instrução ROLLBACK. Observe que a deleção foi desfeita.
+46
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+ERROS COMUNS
+47
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+ERRO DE VIOLAÇÃO DE CHAVE PRIMÁRIA
+Tentativa de inserção de um novo registro, utilizando uma chave primária já cadastrada/existente.
+Observe que já existe um registro na tabela DEPTO, cadastrado com código igual a 1.
+48
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+ERRO DE VIOLAÇÃO DE UNIQUE CONSTRAINT
+Tentativa de inserção de um novo registro, utilizando um nome de departamento já cadastrado/existente.
+Observe que já existe um registro na tabela DEPTO, cadastrado com o nome ‘MARKETING’.
+49
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+ERRO DE VIOLAÇÃO DE CHAVE ESTRANGEIRA
+Tentativa de inserção de um novo registro, utilizando um código de departamento que não existe na
+tabela DEPTO.
+Observe que não existe um departamento na tabela DEPTO, cadastrado com o código 99.
+50
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+ERRO DE VIOLAÇÃO DE CHECK CONSTRAINT
+Tentativa de inserção de um novo registro, utilizando um valor para o salário menor que 1045.
+Violando a restrição CHECK, onde foi configurado a regra de validação para o salário.
+Observe a regra de validação configurada para a tabela FUNCIONÁRIO, no campo VL_SALARIO.
+51
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+ERRO REFERENTE AO TAMANHO DE DADOS DE UM CAMPO NUMÉRICO (MAIOR QUE A CAPACIDADE)
+Tentativa de inserção de um novo registro, utilizando um código de departamento, que excede o
+tamanho máximo especificado para o campo.
+Observe a estrutura da tabela DEPTO, onde o código do departamento, foi definido com no máximo 3
+dígitos numéricos inteiros.
+52
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+ERRO REFERENTE AO TIPO DE DADOS INVÁLIDO
+Tentativa de inserção de um novo registro, utilizando um código de departamento com conteúdo
+caractere, onde é especificado um número.
+Observe a estrutura da tabela DEPTO, onde o código do departamento, foi definido com no máximo 3
+dígitos numéricos inteiros.
+53
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+ERRO REFERENTE A VALORES INSUFICIENTES PARA INSERÇÃO
+Tentativa de inserção de um novo registro, utilizando menos valores (conteúdos dos campos) do que
+o esperado na tabela, conforme definição de sua estrutura.
+Observe a estrutura da tabela DEPTO, durante a inserção, são esperados valores (conteúdo) para três
+colunas e foram informados apenas 2 valores.
+54
+Publico
+Linguagem SQL
+Manipulação dos Dados utilizando a linguagem SQL
+ERRO REFERENTE A VALORES DEMAIS ENVIADOS PARA INSERÇÃO
+Tentativa de inserção de um novo registro, utilizando mais valores (conteúdos dos campos) do que o
+esperado na tabela, conforme definição de sua estrutura.
+Observe a estrutura da tabela DEPTO, durante a inserção, são esperados valores (conteúdo) para três
+colunas e foram informados 4 valores.
+55
+Publico
+Próxima aula estudaremos
+❑ Revisão de conceitos através de exercícios
+56
+Publico
+REFERÊNCIAS
+▪ MACHADO, Felipe Nery R. Banco de Dados -
+Projeto e Implementação. Érica, 2004.
+▪ Páginas: 330, 331.
+▪ ELMASRI, R.; NAVATHE, S.B. Sistemas de Banco
+de Dados: Fundamentos e Aplicações.
+Pearson, 2005. Páginas: 153, 154.
+▪ PRICE, JASON, ORACLE DATABASE 11 g – SQL
+Domine SQL e PL-SQL no banco de Dados
+Oracle, Bookman, 2008. Capítulo: 8. Páginas:
+280 a 301.
+▪ Puga, S.; França. Ed.; Goya, M. Banco de Dados
+– Implementação em SQL, PL/SQL e Oracle
+11g. Pearson, 2014.
+57
+Publico
+Copyright © 2023 NTC. Kaique Oliveira
+Todos direitos reservados. Reprodução ou divulgação total ou parcial deste
+documento é expressamente proíbido sem o consentimento formal, por
+escrito, do NTC (autor).
